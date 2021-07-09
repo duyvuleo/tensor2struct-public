@@ -95,11 +95,12 @@ class AbstractContext(metaclass=abc.ABCMeta):
         p_str = f"select {column} from {table} where {column} like '{word} %' or {column} like '% {word}' or {column} like '% {word} %'  or {column} like '{word}'"
         try:
             cursor.execute(p_str)
-            p_res = cursor.fetchall()
+            # p_res = cursor.fetchall()
+            p_res = cursor.fetchone()  # faster
             if len(p_res) == 0:
                 return False
             else:
-                return p_res
+                return True #, p_res
         except Exception as e:
             return False
 
