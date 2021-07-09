@@ -1,21 +1,9 @@
-import argparse
-import collections
-import datetime
-import json
-import os
-import wandb
-import logging
-
-import _jsonnet
 import attr
-import random
 import torch
-import pickle
+import wandb
 
-from tensor2struct.utils import random_state, registry
-from tensor2struct.utils import saver as saver_mod
 from tensor2struct.commands import train
-from tensor2struct.models.enc_dec import ZippedDataset
+from tensor2struct.utils import registry
 
 
 @attr.s

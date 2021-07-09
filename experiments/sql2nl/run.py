@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
-import os
-import _jsonnet
-import json
 import argparse
+import json
+import os
+
+import _jsonnet
 import attr
 import wandb
 
 from experiments.sql2nl import train
-from tensor2struct.commands import eval
 
 
 @attr.s
