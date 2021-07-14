@@ -29,8 +29,8 @@
         lr: 5e-4,
         clip_grad: 0.3,
         num_batch_accumulated: 1,
-        max_steps: 20000,
-        save_threshold: 19000,
+        max_steps: 100000,
+        save_threshold: 80000,
         use_bert_training: true,
         device: "cuda:0",
     },
@@ -43,7 +43,7 @@
     eval_debug: false,
     eval_name: "bert_run_%d_%s_%s_%d_%d" % [exp_id, self.eval_section, self.eval_method, self.eval_beam_size, self.model_config_args.att],
 
-    local _start_step = $.model_config_args.save_threshold / 1000,
-    local _end_step = $.model_config_args.max_steps / 1000,
-    eval_steps: [ 1000 * x for x in std.range(_start_step, _end_step)],
+    local _start_step = $.model_config_args.save_threshold / 5000,
+    local _end_step = $.model_config_args.max_steps / 5000,
+    eval_steps: [ 5000 * x for x in std.range(_start_step, _end_step)],
 }
