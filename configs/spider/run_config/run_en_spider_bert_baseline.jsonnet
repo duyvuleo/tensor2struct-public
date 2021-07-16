@@ -1,5 +1,5 @@
 {
-    local exp_id = 0,
+    local exp_id = 1,
     project: "spider_value",
     logdir: "log/spider/bert_value_%d" %exp_id,
     model_config: "configs/spider/model_config/en_spider_bert_value.jsonnet",
@@ -11,7 +11,7 @@
         num_layers: 6,
         sc_link: true,
         cv_link: true,
-        loss_type: "softmax", # softmax, label_smooth
+        loss_type: "label_smooth", # softmax, label_smooth
 
         # bert
         opt: "torchAdamw",   # bertAdamw, torchAdamw
@@ -24,13 +24,13 @@
         include_literals: true,
 
         # training
-        bs: 16,
+        bs: 8,
         att: 0,
         lr: 5e-4,
         clip_grad: 0.3,
-        num_batch_accumulated: 1,
-        max_steps: 100000,
-        save_threshold: 80000,
+        num_batch_accumulated: 6,
+        max_steps: 150000,
+        save_threshold: 20000,
         use_bert_training: true,
         device: "cuda:0",
     },

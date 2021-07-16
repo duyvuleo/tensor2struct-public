@@ -173,14 +173,16 @@ function(args={}, data_path=_data_path) {
         data_seed:  $.args.att,
         init_seed:  $.args.att,
 
-        keep_every_n: 1000,
-        eval_every_n: 100,
+        keep_every_n: 5000,
+        eval_every_n: 5000,
         save_threshold: $.args.save_threshold,
-        save_every_n: 100,
-        report_every_n: 10,
+        save_every_n: 5000,
+        report_every_n: 20,
+        eval_on_train: false,
+        eval_on_val: true,
 
         max_steps: $.args.max_steps,
-        num_eval_items: 50,
+        num_eval_items: 1034,
     },
 
     meta_train: $.train + {
